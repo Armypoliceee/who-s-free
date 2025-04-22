@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BTS Who's Free Game 💜</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f7e9f0;
+      text-align: center;
+      padding: 40px;
+    }
+    h1 {
+      color: #A86BBF;
+      font-size: 2.5rem;
+    }
+    .members {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .member {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 20px;
+      border: 2px solid #d1c4e9;
+      cursor: pointer;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+    .member:hover {
+      transform: scale(1.05);
+      border-color: #A86BBF;
+    }
+    .quiz-button {
+      margin-top: 40px;
+      padding: 15px 30px;
+      background-color: #A86BBF;
+      color: white;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 1.2rem;
+      transition: background-color 0.3s;
+    }
+    .quiz-button:hover {
+      background-color: #7a4e99;
+    }
+    .reply-box {
+      margin-top: 50px;
+      font-size: 20px;
+      padding: 20px;
+      border-radius: 12px;
+      background-color: #fff;
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Who's Free? — BTS Game 💜</h1>
+  <p>Click a member to ask if they’re free 👀</p>
+
+  <div class="members">
+    <img src="jin.jpeg" alt="Jin" class="member" onclick="showReply('jin')">
+    <img src="suga.jpeg" alt="Suga" class="member" onclick="showReply('suga')">
+    <img src="jhope.jpeg" alt="J-Hope" class="member" onclick="showReply('jhope')">
+    <img src="rm.jpeg" alt="RM" class="member" onclick="showReply('rm')">
+    <img src="jimin.jpeg" alt="Jimin" class="member" onclick="showReply('jimin')">
+    <img src="v.jpeg" alt="V" class="member" onclick="showReply('v')">
+    <img src="jk.jpeg" alt="Jungkook" class="member" onclick="showReply('jk')">
+  </div>
+
+  <div class="reply-box" id="replyBox">They’re thinking... 🤔</div>
+
+  <button class="quiz-button" onclick="window.location.href='quiz.html'">Take the Personality Quiz</button>
+
+  <script>
+    const replies = {
+      jin: [
+        "I'm busy eating, go to Jimin 🍽️",
+        "I’m filming Eat Jin, no time! 🎥",
+        "Try Jungkook, he's free now!",
+        "I’m working on my recipe! Try RM!",
+        "I'm practicing my worldwide handsome look, go to J-Hope!",
+      ],
+      suga: [
+        "I’m sleeping, ask J-Hope 😴",
+        "Busy composing, try Jimin!",
+        "Go to V, he’s probably up!",
+        "I’m writing lyrics, no time for this!",
+        "Ask RM, he's always talking!",
+      ],
+      jhope: [
+        "I’m making dance moves, go to Jin!",
+        "Ask Jimin, he's being all cute!",
+        "I'm rehearsing, sorry! Try Suga!",
+        "I’m making motivational speeches, go to V!",
+        "I’m busy laughing, go to Jungkook!",
+      ],
+      rm: [
+        "I'm reading a book, try V!",
+        "Busy discussing philosophy, ask Suga!",
+        "I’m writing lyrics, go to Jimin!",
+        "I’m practicing rap, try J-Hope!",
+        "I’m too deep in thought, go to Jin!",
+      ],
+      jimin: [
+        "I'm busy practicing choreography, try V!",
+        "I'm taking selfies, go to Jungkook!",
+        "I’m being cute, go to J-Hope!",
+        "I’m preparing for a performance, try Jin!",
+        "Go to Suga, he’s composing!",
+      ],
+      v: [
+        "I'm painting, try Jimin!",
+        "I’m busy with my photography, ask J-Hope!",
+        "I’m being mysterious, go to Jungkook!",
+        "I’m perfecting my smile, try RM!",
+        "I’m just vibing, go to Suga!",
+      ],
+      jk: [
+        "I’m training, go to RM!",
+        "I’m eating, ask V!",
+        "I’m doing exercises, try Jin!",
+        "I’m singing, go to Jimin!",
+        "I’m too busy looking cool, try J-Hope!",
+      ],
+    };
+
+    function showReply(member) {
+      const replyBox = document.getElementById('replyBox');
+      const memberReplies = replies[member];
+      const randomReply = memberReplies[Math.floor(Math.random() * memberReplies.length)];
+      replyBox.textContent = randomReply;
+    }
+  </script>
+
+</body>
+</html>
